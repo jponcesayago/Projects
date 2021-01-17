@@ -1,0 +1,337 @@
+<core:View	controllerName="prismalunar.controller.viewrawmaterialregistry" 
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+			
+	<Page   id="viewRawMatPag" 
+			title="Registro de Materia Prima"
+			backgroundDesign="Transparent" 
+			showNavButton="true" 
+			enableScrolling="false" 
+			showHeader="true" 
+			showSubHeader="true"
+			navButtonTooltip="Regresar al menú principal"
+			navButtonPress="handleViewRawMatNavButton"
+			titleLevel="H3">
+		<content>
+			
+			<ViewSettingsDialog
+			class="sapUiSizeCompact"
+			title="Ordenar"
+			id="ViewSettingsDialogSort"
+			
+			confirm="handleSortDialogConfirm">
+			
+			<sortItems>
+				<ViewSettingsItem text="ID" key="matId" selected="true" />
+				<ViewSettingsItem text="Nombre" key="name" />
+				<ViewSettingsItem text="Descripción" key="descrip" />
+				<ViewSettingsItem text="Precio" key="price" />
+				<ViewSettingsItem text="Longitud/Cantidad" key="quantity" />
+				<ViewSettingsItem text="Precio(mt/unidad)" key="priceUnitMt" />
+			</sortItems>
+			
+			</ViewSettingsDialog>
+			
+			
+			<ViewSettingsDialog
+				class="sapUiSizeCompact"
+				id="ViewSettingsDialogFilter"
+				confirm="handleFilterDialogConfirm">
+				
+			<filterItems>
+				<ViewSettingsFilterItem
+					text="Nombre"
+					key="name"
+					multiSelect="false">
+					<items>
+						<ViewSettingsItem text="Less than 1000" key="WeightMeasure___LE___1000___X" />
+						<ViewSettingsItem text="Between 1000 and 2000" key="WeightMeasure___BT___1000___2000" />
+						<ViewSettingsItem text="More Than 2000" key="WeightMeasure___GT___2000___X" />
+					</items>
+				</ViewSettingsFilterItem>
+				<ViewSettingsFilterItem
+					text="Descripción"
+					key="descrip"
+					multiSelect="false">
+					<items>
+						<ViewSettingsItem text="Less Than 100" key="Price___LE___100___X" />
+						<ViewSettingsItem text="Between 100 and 1000" key="Price___BT___100___1000" />
+						<ViewSettingsItem text="More Than 1000" key="Price___GT___1000___X" />
+					</items>
+				</ViewSettingsFilterItem>
+			</filterItems>
+			</ViewSettingsDialog>
+			
+			
+			
+				<ViewSettingsDialog
+					class="sapUiSizeCompact"
+					id="ViewSettingsDialogGoup"
+					confirm="handleGroupDialogConfirm">
+				<groupItems>
+					<ViewSettingsItem text="Supplier" key="SupplierName" />
+					<ViewSettingsItem text="Price" key="Price" />
+				</groupItems>
+				</ViewSettingsDialog>
+			
+			
+			
+			
+			<Dialog
+			icon="sap-icon://activity-items"
+			id="newRawMatDialog"
+			title="Agregar Nueva Materia Prima"
+			class="sapUiPopupWithPadding" >
+			<content>
+					<l:VerticalLayout class="vertLayoutNewRawMatDialog" id="vertLayoutNewRawMatDialog"  width="100%">
+						
+						<l:HorizontalLayout class="horizLayoutNewRawMatDialog" id="horizLayoutNewRawMatDialog" allowWrapping="true">
+						
+							<Label class="nameRawMatLabelDialog" id="nameRawMatLabel" text="Nombre: "/> 
+							<Input id="nameRawMat" type="Text" width="15rem" maxLength="30" placeholder="Ingrese nombre del material" required="true"/>
+							<Label class="descRawMatLabelDialog" id="descRawMatLabel" text="Descripción: "/>
+							<Input id="descRawMat" type="Text" width="15rem" maxLength="50" placeholder="Ingrese descripción" required="true"/>
+						
+						</l:HorizontalLayout>
+						
+						<l:HorizontalLayout class="horizLayoutNewRawMatDialog2" id="horizLayoutNewRawMatDialog2" allowWrapping="true">
+						
+							<Label class="unitRawMatLabelDialog" id="unitRawMatLabel" text="Unidades: "/>
+							
+							<Select 
+								class="newRawSelectDialog"
+								id="newRawSelect" 
+								forceSelection="false"
+								tooltip="Seleccionar el tipo de unidad a utilizar"
+								selectedKey="{/SelectedUnit}"
+								change="handleSelectNewRawMat"
+								items="{
+										path: '/Units'
+										}">
+										
+									<core:Item key="{ItemId}" text="{Item}" />
+							</Select>  	
+						
+						
+							<Label class="priceTotalRawMatLabelDialog"  id="priceTotalRawMatLabel" text="Precio: "/> 
+							<Input id="priceTotalRawMat" liveChange="handleCalculPriceUnit" tooltip="Ingrese precio total" type="Number" width="5rem" maxLength="10" placeholder="0" required="true"/>
+							
+							<Label class="quantRawMatLabelDialog" id="quantTotalRawMatLabel" text="Longitud: "/> 
+							<Input id="quantTotalRawMat" liveChange="handleCalculPriceUnit" tooltip="Ingrese longitud total" type="Number" width="6rem" maxLength="10" placeholder="0" required="true"/>
+							
+							
+							<Label class="priceUnitRawMatLabelDialog" id="priceUnitRawMatLabel" text="Precio/mt: "/> 
+							<Input enabled="false" id="priceUnitRawMat" type="Number" tooltip="Precio por metro del material ingresado" width="5rem" maxLength="10" placeholder="0" required="true"/>
+							
+						</l:HorizontalLayout>
+					
+					</l:VerticalLayout>
+					
+			</content>
+		<beginButton>
+			<Button id="saveNewRawMatDialog" text="Guardar" press="handleSaveNewRawMatDialog" />	
+		</beginButton>
+		<endButton>
+			<Button id="closeNewRawMatDialog" text="Cerrar" press="handlecloseNewRawMatDialog" />
+			
+		</endButton>
+	</Dialog>
+	
+		
+		<Table 		
+					id="rawMaterialTable"
+					noDataText="No se han agregado materiales"
+					mode="Delete"
+					delete="handleRawMatDeleteItem"
+					showSeparators="Inner"
+					inset="false"
+					items="{
+							path: '/',
+							sorter: {
+							path: 'Name'
+									}
+						}">
+		<headerToolbar>
+			<OverflowToolbar class="OverflowToolbarRawMaterialTable">
+				<content>
+					<Title text="Materias Primas" level="H2"/>
+					<ToolbarSpacer />
+					<Text id="textFilter" text="Filtrar por: "/>
+					<ComboBox	
+								visible="true" 
+								id="comboBoxFilter"
+								class="comboBoxRawMatFilter"
+								selectedKey="name"
+								showButton="true"
+								width="8.5rem"
+								change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Nombre"
+								key="name"/>
+							<core:Item  text="Descripción"
+								key="descrip"/>
+							
+						</items>
+					</ComboBox>
+					
+					
+					<SearchField
+								id="rawMatSearchField"
+								class="searchFieldRawMatFilter"
+								placeholder="Búsqueda"
+								liveChange="hanldeSearchFieldFilterLiveChange"
+								width="11rem">
+					
+					</SearchField>
+					
+					
+					
+					<Label visible="false" text="Sticky options:" />
+					<CheckBox visible="false" text="ColumnHeaders"
+						select="onSelect"/>
+					<CheckBox visible="false" text="HeaderToolbar"
+						select="onSelect"/>
+					
+					
+					<Button
+							
+							id="sortRawMatTable"
+							class="ButtonOverflowToolbarRawMatTable"
+							tooltip="Ver configuración de ordenamiento"
+							icon="sap-icon://sort"
+							type="Emphasized"
+							press="handleSortButtonPressed" />
+						<Button
+							enabled="false"
+							id="filterRawMatTable"
+							class="ButtonOverflowToolbarRawMatTable"
+							tooltip="Ver configuración de filtrado"
+							icon="sap-icon://filter"
+							type="Emphasized"
+							press="handleFilterButtonPressed" />
+						<Button
+							enabled="false"
+							id="groupRawMatTable"
+							class="ButtonOverflowToolbarRawMatTable"
+							tooltip="Ver configuración de agrupamiento"
+							icon="sap-icon://group-2"
+							type="Emphasized"
+							press="handleGroupButtonPressed" />
+							
+					<Button enabled="true"
+							class="ButtonOverflowToolbarRawMatTable"
+							id="viewRawMatEditButton" text="Editar" type="Emphasized" tooltip="Editar registros de materiales existentes"
+							press="handleRawMatEdit" />
+							
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewRawMatNewRawMatButton" type="Emphasized" icon="sap-icon://add" press="handleNewRawMatButton" tooltip="Agregar nueva materia prima"/>
+					
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewRawMatCSVexport" type="Emphasized" icon="sap-icon://download" press="handleCSVExport" tooltip="Exportar registro de materiales a archivo de Excel" />
+					
+					
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewRawMatSaveEditButton" text="Guardar" type="Emphasized" tooltip="Guardar datos"
+							press="handleRawMatSaveEdit" visible="false" />
+					
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewRawMatCancelEditButton" text="Cancelar" type="Emphasized" tooltip="Salir del modo edición"
+							press="handleRawMatCancelEdit" visible="false" />
+					
+					<ToggleButton visible="false" id="toggleInfoToolbar"
+						text="Hide/Show InfoToolbar"
+						press="onToggleInfoToolbar" />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar>
+				<Label text="Listado de materiales"/>
+			</OverflowToolbar>
+		</infoToolbar>
+		<columns>
+			<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Unidad" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Precio" />
+			</Column>
+			<Column
+				hAlign="Center">
+				<Text text="Longitud/Cantidad" />
+			</Column>
+			<Column
+				hAlign="Center">
+				<Text text="Precio(mt/unidad)" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						id="matIDRawMatTable"
+						title="{matId}"
+						/>
+						
+					<ObjectIdentifier
+						id="nameRawMatTable"
+						title="{name}"
+						/>
+					<Text
+						id="descRawMatTable"
+						text="{descrip}" />
+					<Text
+						id="unitRawMatTable"
+						text="{unit}" />
+					<ObjectNumber
+						id="priceRawMatTable"
+						number="{price}"
+						unit="$"
+						 />
+					<ObjectNumber
+							id="quantityRawMatTable"
+							number="{quantity}"
+							
+							unit="" />
+					<ObjectNumber
+							id="priceUnitMtRawMatTable"
+							number="{priceUnitMt}"
+							
+							unit="$" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+		
+		
+	
+		</content>
+	</Page>
+</core:View>

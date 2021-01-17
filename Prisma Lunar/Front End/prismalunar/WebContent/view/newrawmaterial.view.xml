@@ -1,0 +1,124 @@
+<core:View	controllerName="prismalunar.controller.newrawmaterial" 
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+	
+	
+	<Page 	id="newRawMatPage" 
+			backgroundDesign="Transparent" 
+			showNavButton="true" 
+			enableScrolling="false" 
+			title="Nueva Materia Prima"
+			showHeader="true" 
+			showSubHeader="true"
+			navButtonTooltip="Regresar al menú principal"
+			navButtonPress="handleNewRawMatNavButton"
+			titleLevel="H3">
+			
+		<subHeader>
+			<Toolbar design="Transparent">
+				
+				<ToolbarSpacer/>
+				<Title class="titleNewRawMat" text="Ingreso de datos" level="H3"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</subHeader>
+			
+		<content>
+		
+		
+		
+		<l:VerticalLayout class="vertLayoutNewRawMat" id="vertLayoutNewRawMat"  width="100%">
+			
+			<FlexBox	class="FBFormNewRawMat"
+						id="FBForm1NewRawMat"
+						height="2rem"
+						alignItems="Center"
+						justifyContent="Center">
+			<items>
+			
+			
+				
+				<Label id="nameRawMatLabel" text="Nombre: "/> 
+				<Input id="nameRawMat" type="Text" width="15rem" maxLength="30" placeholder="Ingrese nombre del material" required="true"/>
+				<Label id="descRawMatLabel" text="Descripción: "/>
+				<Input id="descRawMat" type="Text" width="15rem" maxLength="50" placeholder="Ingrese descripción" required="true"/>
+				
+				
+			
+			
+		
+			</items>
+			</FlexBox>
+			
+			<FlexBox	class="FBFormNewRawMat"
+						id="FBForm2NewRawMat"
+						height="2rem"
+						alignItems="Center"
+						justifyContent="Center">
+			<items>
+			
+			<Label id="unitRawMatLabel" text="Unidades: "/>
+					
+				<Select 
+					class="newRawSelect"
+					id="newRawSelect" 
+					forceSelection="false"
+					tooltip="Seleccionar el tipo de unidad a utilizar"
+					selectedKey="{/SelectedUnit}"
+					change="handleSelectNewRawMat"
+					items="{
+							path: '/Units'
+							}">
+							
+						<core:Item key="{ItemId}" text="{Item}" />
+				</Select>  	
+				
+				
+				<Label id="priceTotalRawMatLabel" text="Precio: "/> 
+				<Input id="priceTotalRawMat" liveChange="handleCalculPriceUnit" tooltip="Ingrese precio total" type="Number" width="5rem" maxLength="10" placeholder="0" required="true"/>
+				
+				<Label id="quantTotalRawMatLabel" text="Longitud: "/> 
+				<Input id="quantTotalRawMat" liveChange="handleCalculPriceUnit" tooltip="Ingrese longitud total" type="Number" width="5rem" maxLength="10" placeholder="0" required="true"/>
+				
+				
+				<Label id="priceUnitRawMatLabel" text="Precio/mt: "/> 
+				<Input enabled="false" id="priceUnitRawMat" type="Number" tooltip="Precio por metro del material ingresado" width="5rem" maxLength="10" placeholder="0" required="true"/>
+				
+			
+			</items>
+			</FlexBox>
+			
+			
+		</l:VerticalLayout>
+		
+		
+	<!--<Label id="priceKgRawMatLabel" text="Precio/cantidad: "/>
+		<Input id="priceKgRawMat" type="Text" width="15rem" maxLength="10" placeholder="Ingrese el precio del material por metro" required="true"/> -->
+		
+		<FlexBox    class="FBValidSaveNewRawMat"
+					id="FBValidSaveNewRawMat"
+					height="2rem"
+					alignItems="Start"
+					justifyContent="Center">
+		<items>
+			
+			<Button class="ValidateSaveNewRawMatButton" id="ValidateSaveNewRawMatButton" press="handleValSaveNewRawMatButton" text="Validar y Salvar" tooltip="Validar los datos ingresados y guardar la información"/>
+		
+		</items>
+		</FlexBox>
+		
+	
+		</content>
+	</Page>
+</core:View>

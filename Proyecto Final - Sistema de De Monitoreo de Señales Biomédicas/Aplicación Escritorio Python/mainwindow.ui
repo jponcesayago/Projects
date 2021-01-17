@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>603</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>5</width>
+    <height>5</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Sistema de Monitoreo Señales Biomédicas</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>heart_icon.png</normaloff>heart_icon.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="toolTip">
+   <string>Pantalla principal</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="connect_mqtt">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>60</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="statusTip">
+     <string>Conectar con Servidor MQTT</string>
+    </property>
+    <property name="text">
+     <string>Conectar </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Realizar conexión con Servidor MQTT</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>30</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Estado conexión</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>60</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No conectado</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>603</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionVer_signal"/>
+    <addaction name="actionImportar_Archivos"/>
+    <addaction name="actionRegistro_de_Datos"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionVer_signal">
+   <property name="text">
+    <string>Visualización señales</string>
+   </property>
+   <property name="toolTip">
+    <string>Visualización variables</string>
+   </property>
+   <property name="statusTip">
+    <string>Comenzar a recibir información para la visualización de las señales</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="statusTip">
+    <string>Salir de la aplicación</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionImportar_Archivos">
+   <property name="text">
+    <string>Importar Archivos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_Datos">
+   <property name="text">
+    <string>Registro de Datos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

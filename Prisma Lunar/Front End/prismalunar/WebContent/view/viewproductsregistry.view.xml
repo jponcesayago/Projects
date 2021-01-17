@@ -1,0 +1,321 @@
+<core:View	controllerName="prismalunar.controller.viewproductsregistry"
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+		 	
+		 	
+	<Page 	id="viewProductsPage" 
+			title="Registro de Productos"
+			backgroundDesign="Transparent" 
+			showNavButton="true" 
+			enableScrolling="false" 
+			showHeader="true" 
+			showSubHeader="true"
+			navButtonTooltip="Regresar al menú principal"
+			navButtonPress="handleViewProductsNavButton"
+			titleLevel="H3">
+		<content>
+		
+		
+		<Dialog
+			icon="sap-icon://activity-items"
+			id="newProductDialog"
+			title="Agregar Nuevo Producto"
+			class="sapUiPopupWithPadding" >
+		<content>
+				<l:VerticalLayout class="vertLayoutNewRawMatDialog" id="vertLayoutNewRawMatDialog"  width="100%">
+					
+					<l:HorizontalLayout class="horizLayoutNewRawMatDialog" id="horizLayoutNewRawMatDialog" allowWrapping="true">
+					
+						<Label class="nameRawMatLabelDialog" id="nameRawMatLabel" text="Nombre: "/> 
+						<Input id="nameProduct" type="Text" width="15rem" maxLength="30" placeholder="Ingrese nombre del material" required="true"/>
+						<Label class="descRawMatLabelDialog" id="descRawMatLabel" text="Descripción: "/>
+						<Input id="descProduct" type="Text" width="15rem" maxLength="50" placeholder="Ingrese descripción" required="true"/>
+					
+					</l:HorizontalLayout>
+					
+					<l:HorizontalLayout class="horizLayoutNewRawMatDialog2" id="horizLayoutNewRawMatDialog2" allowWrapping="true">
+					
+						<Label class="rawMatLabelDialog" id="rawMatLabel" text="Materias Primas: "/>
+						
+						<Select 
+							class="newRawSelectDialog"
+							id="rawMaterialSelect" 
+							forceSelection="false"
+							tooltip="Seleccionar materia prima a utilizar"
+							selectedKey="/"
+							change="handleSelectRawMatChange"
+							items="{
+									path: '/'
+									}">
+									
+								<core:Item key="{matId}" text="{name}" />
+						</Select>  	
+					
+						<Label class="priceUnitRawMatLabelDialog" id="priceUnitRawMatLabel" text="Precio/mt: "/> 
+						<Input enabled="false" id="priceUnitRawMat" type="Number" tooltip="Precio por metro del material ingresado" width="5rem" maxLength="10" placeholder="0" required="true"/>
+						
+						<Label class="quantRawMatLabelDialog" id="quantTotalRawMatLabel" text="Longitud: "/> 
+						<Input id="quantTotalRawMat" liveChange="handleCalculCost" tooltip="Ingrese longitud total" type="Number" width="6rem" maxLength="10" placeholder="0" required="true"/>
+						
+						<Label class="costRawMatLabelDialog"  id="costRawMatLabel" text="Costo: "/> 
+						<Input  enabled="false" id="costRawMat"  tooltip="Costo de la materia prima agregada" type="Number" width="5rem" maxLength="10" placeholder="0" required="true"/>
+						
+						
+					</l:HorizontalLayout>
+				
+					
+					
+					<Table 
+							width="50rem"
+							id="addRawMatTable"
+							mode="Delete"
+							delete="handleRawMatDeleteItem"
+							showSeparators="Inner"
+							inset="false"
+							items="{
+									path: '/',
+									sorter: {
+									path: 'Name'
+											}
+								}">
+								<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<Title text="Materiales" level="H2"/>
+										<ToolbarSpacer />
+					
+										<Button  id="addRawMatButton" icon="sap-icon://add-product" tooltip="Agregar materia prima para el nuevo producto" press="handleAddRawMatDialog" />	
+					
+										<Button visible="false" id="viewNewProductButton2" icon="sap-icon://add" press="handleNewProductButton" />
+										
+										<Button visible="false" id="viewProductCSVexport2" icon="sap-icon://download" press="handleProductCSVExport" />
+										
+									
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column
+									
+									width="3rem">
+									<Text text="ID" />
+									</Column>
+								<Column
+									width="10rem">
+									<Text text="Nombre" />
+								</Column>
+								<Column
+									width="10rem"
+									>
+									<Text  text="Precio(mt/unidad)" />
+								</Column>
+								<Column
+							
+									width="10rem"
+									hAlign="End">
+									<Text text="Cantidad/Longitud" />
+								</Column>
+								<Column
+							
+									witdh="4rem"
+									hAlign="End">
+									<Text text="Costo" />
+								</Column>
+							</columns>	
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier
+											
+											title="{matId}"
+											/>
+											
+										<ObjectIdentifier
+											
+											title="{name}"
+											/>
+										<ObjectNumber
+											
+											number="{priceUnitMt}"
+											unit="$"
+											 />
+										<ObjectNumber
+											
+											number="{quantityRawMat}"
+											unit=""
+											 />
+										<ObjectNumber
+											
+											number="{costRawMat}"
+											unit="$"
+											 />
+										
+										
+									</cells>
+								</ColumnListItem>
+							</items>
+							
+
+					</Table>
+				
+				</l:VerticalLayout>
+				
+		</content>
+		<beginButton>
+			<Button enabled="false" id="saveNewProdDialog" text="Guardar" tooltip="Guardar todos los datos del nuevo producto" press="handleSaveNewProductDialog" />	
+		</beginButton>
+		<endButton>
+			<Button id="closeNewProdDialog" text="Cerrar" tooltip="Cerrar ventana" press="handlecloseNewProductDialog" />
+			
+		</endButton>
+	</Dialog>
+	
+	
+	<Table 		
+					id="ProductsTable"
+					noDataText="No se han agregado productos"
+					mode="Delete"
+					delete="handleProductDeleteItem"
+					showSeparators="Inner"
+					inset="false"
+					items="{
+							path: '/',
+							sorter: {
+							path: 'Name'
+									}
+						}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title visible="true" text="Productos" level="H2"/>
+					<ToolbarSpacer />
+					<Text id="textFilter" text="Filtrar por: "/>
+					<ComboBox	
+								visible="true" 
+								id="comboBoxFilter"
+								class="comboBoxRawMatFilter"
+								selectedKey="name"
+								showButton="true"
+								width="8.5rem"
+								change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Nombre"
+								key="name"/>
+							<core:Item  text="Descripción"
+								key="descrip"/>
+							<core:Item  text="Precio"
+								key="price"/>
+							
+						</items>
+					</ComboBox>
+					
+					
+					<SearchField
+								id="rawMatSearchField"
+								class="searchFieldRawMatFilter"
+								placeholder="Búsqueda"
+								liveChange="hanldeSearchFieldFilterLiveChange"
+								width="11rem">
+					
+					</SearchField>
+					
+					
+					
+					
+					<ComboBox visible="false" id="idPopinLayout"
+						placeholder="Popin layout options"
+						change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Block"
+								key="Block"/>
+							<core:Item  text="Grid Large"
+								key="GridLarge"/>
+							<core:Item  text="Grid Small"
+								key="GridSmall"/>
+						</items>
+					</ComboBox>
+					<Label visible="false" text="Sticky options:" />
+					<CheckBox visible="false" text="ColumnHeaders"
+						select="onSelect"/>
+					<CheckBox visible="false" text="HeaderToolbar"
+						select="onSelect"/>
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewNewProductButton" enabled="false" type="Emphasized"  tooltip="Añadir nuevo producto al stock" icon="sap-icon://add" press="handleNewProductButton" />
+					
+					<Button class="ButtonOverflowToolbarRawMatTable" id="viewProductCSVexport" icon="sap-icon://download" type="Emphasized" tooltip="Exportar registro de productos a archivo de Excel" press="handleProductCSVExport" />
+					
+					<ToggleButton visible="false" id="toggleInfoToolbar"
+						text="Hide/Show InfoToolbar"
+						press="onToggleInfoToolbar" />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar>
+				<Label text="Listado de productos"/>
+			</OverflowToolbar>
+		</infoToolbar>
+		<columns>
+			<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Precio" />
+			</Column>
+			
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						id="prodIDProductTable"
+						title="{prodId}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodNameProductTable"
+						title="{prodName}"
+						/>
+					<Text
+						id="prodDescripProductTable"
+						text="{prodDescrip}" />
+					<ObjectNumber
+						id="prodPriceProductTable"
+						number="{prodPrice}"
+						unit="$"
+						 />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	
+	
+	
+	
+		</content>
+	</Page>
+</core:View>

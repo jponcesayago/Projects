@@ -1,0 +1,32 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/prismalunar-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/prismalunar-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/Nothwind",
+      "target": {
+        "type": "destination",
+        "name": "Nothwind"
+      },
+      "description": "Servicio"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

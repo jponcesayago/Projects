@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewPatientReg</class>
+ <widget class="QMainWindow" name="NewPatientReg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Registro Nuevo Paciente</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>heart_icon.png</normaloff>heart_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupNewPatientBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>581</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Completar Datos del Paciente</string>
+    </property>
+    <widget class="QPushButton" name="saveNewPatientButton">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>370</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Guardar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="delRegButton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>370</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Borrar</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="nameInput">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>411</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Nombres del paciente</string>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="maxLength">
+      <number>25</number>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Ingrese nombres del paciente</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lastNameInput">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>100</y>
+       <width>411</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Apellidos del Paciente</string>
+     </property>
+     <property name="maxLength">
+      <number>25</number>
+     </property>
+     <property name="placeholderText">
+      <string>Ingrese apeliidos del paciente</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dniNumberInput">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>150</y>
+       <width>181</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Número de Documento</string>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhDigitsOnly</set>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>9</number>
+     </property>
+     <property name="placeholderText">
+      <string>Documento nacional de identidad</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelNameReg">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lastNameReg">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>80</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Apellido</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelDniNumber">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>130</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Nro de Documento</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelAge">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>130</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edad</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ageInput">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>150</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Edad</string>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhDigitsOnly</set>
+     </property>
+     <property name="maxLength">
+      <number>3</number>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Edad</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelMaritalStatus">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>180</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Estado Civil</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="maritalStatusComboBox">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>200</y>
+       <width>191</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Estado Civil del Paciente</string>
+     </property>
+     <property name="currentIndex">
+      <number>-1</number>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="celPhoneInput">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>260</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Telofono Celular</string>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhFormattedNumbersOnly</set>
+     </property>
+     <property name="maxLength">
+      <number>20</number>
+     </property>
+     <property name="placeholderText">
+      <string>Teléfono</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelCelPhone">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>240</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Telefono Celular</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelBirthDate">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>240</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="text">
+      <string>Fecha de Nacimiento</string>
+     </property>
+    </widget>
+    <widget class="QDateEdit" name="birthDateEdit">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>260</y>
+       <width>181</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Fecha de Nacimiento</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="streetInput">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>320</y>
+       <width>181</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Dirección</string>
+     </property>
+     <property name="maxLength">
+      <number>25</number>
+     </property>
+     <property name="placeholderText">
+      <string>Dirección residencia actual</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cityInput">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>320</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Ciudad</string>
+     </property>
+     <property name="maxLength">
+      <number>25</number>
+     </property>
+     <property name="placeholderText">
+      <string>Ciudad residencia actual</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="genreGroupBox">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>180</y>
+       <width>181</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>Sexo</string>
+     </property>
+     <property name="title">
+      <string>Sexo</string>
+     </property>
+     <widget class="QRadioButton" name="maleRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Masculino</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="femaleRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>20</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Femenino</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="labelStreet">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>300</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dirección</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelCity">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>300</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ciudad</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

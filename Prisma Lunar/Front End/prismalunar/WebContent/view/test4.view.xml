@@ -1,0 +1,20 @@
+<core:View  controllerName="prismalunar.controller.test4"
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+	<Page  id="test4Page" navButtonPress="handleNaveButtonBack" title="Prueba parametros filtos" showNavButton="true" >
+		<content>
+	
+		</content>
+	</Page>
+</core:View>

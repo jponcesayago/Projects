@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Registro de Señales</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>heart_icon.png</normaloff>heart_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>581</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
+       <property name="spacing">
+        <number>50</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="dataAdqTimelabel">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Intervalo de Adquisición:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTimeEdit" name="dataAdqtimeEdit">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::UpDownArrows</enum>
+         </property>
+         <property name="displayFormat">
+          <string>mm:ss</string>
+         </property>
+         <property name="time">
+          <time>
+           <hour>0</hour>
+           <minute>1</minute>
+           <second>0</second>
+          </time>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="startAdqButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Iniciar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+       <property name="spacing">
+        <number>100</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>152</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="dataAdqTypeStudLabel">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Tipo de estudio:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dataAdqTypeStudComboBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,0,1">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>152</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="dataAdqPatientRLabel">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Pacientes registrados</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dataAdqFilterLabel">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Filtrar:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dataAdqFilterSearchField"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

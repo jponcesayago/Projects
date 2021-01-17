@@ -1,0 +1,91 @@
+<core:View  controllerName="prismalunar.controller.homePage"
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+	
+	<App id="idhomePage1">
+	<pages>
+	<Page id="homePage" title="Prisma Lunar Lencería">
+		<content>
+		
+		
+		
+			
+		<tnt:SideNavigation class="SideNavHome" visible="true" id="SideNavHome"  itemSelect="homeMenu">
+
+			   
+		<tnt:NavigationList   id="homeNavigationList">
+		
+		<tnt:NavigationListItem
+					text="Materias Primas" id="mpri" 
+					icon="sap-icon://arrow-down"   expanded="false">																		
+	
+					<tnt:NavigationListItem
+					select="newrawmaterial"
+					text="Agregar Nueva"
+					icon="" id="newmat"  />
+									
+				
+			
+		
+				  <tnt:NavigationListItem 
+				  	select="viewrawmaterialregistry"
+					text="Visualizar registros"
+					id="viewmat"  />
+					
+	
+		</tnt:NavigationListItem>
+		
+		<tnt:NavigationListItem
+					text="Productos" id="prod" 
+					icon="sap-icon://arrow-down"   expanded="false">																		
+	
+					<tnt:NavigationListItem
+					select="newproduct"
+					text="Agregar Nuevo"
+					icon="" id="newprod"  />
+									
+				
+			
+		
+				   <tnt:NavigationListItem 
+				  	select="viewproductsregistry"
+					text="Visualizar productos"
+					id="viewproduct"  />
+					 
+	
+		</tnt:NavigationListItem>
+		
+		
+		
+							
+		</tnt:NavigationList>
+		
+		
+		
+		
+		
+		
+		
+		</tnt:SideNavigation>
+	
+	
+	<Button id="boton" text="prueba" press="handleButtonTest" /> 
+	<Button id="boton2" text="prueba2" press="handleButtonTest2" /> 
+	
+		</content>
+	</Page>
+	
+	</pages>
+	</App>
+</core:View>

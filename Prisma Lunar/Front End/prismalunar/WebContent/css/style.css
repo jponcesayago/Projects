@@ -1,0 +1,147 @@
+
+.searchFieldTableClass{
+	/*
+	height:50%;*/
+}
+.saveNameButtonClass{
+	
+	
+	
+}
+.scrollProductsTable{
+	
+	border-right: 5px ridge #1C6EA4;
+}
+.testFilter{
+	
+	margin-top:1rem;
+	margin-right:1rem;
+}
+
+.pageclass{
+	height:60rem;
+	
+}
+.horizontal{
+	height:100%;
+	
+}
+.sapUiComponentContainer{
+	
+	height: 100%;
+}
+#__container0{
+	
+	height: 100%;
+	
+	}
+.OverflowToolbarRawMaterialTable{
+	
+	/*transform: scale(0.8,0.8);*/
+	
+}
+
+
+.comboBoxRawMatFilter{
+	
+	
+	
+}
+
+
+.searchFieldRawMatFilter{
+	
+	
+	
+}
+
+.ViewSettingsDialogSort{
+	
+	margin-top:0.1rem;
+	transform: scale(0.8,0.8);
+	
+	
+}
+
+.ButtonOverflowToolbarRawMatTable{
+	transform: scale(0.8,0.8);
+	
+	
+	
+}
+
+.SideNavHome{
+	margin-top: 2rem;	
+	
+	
+}
+.indexPage{
+	
+	
+	
+}
+
+.FBFormNewRawMat{
+	
+	margin:1rem;
+	
+}
+
+
+.horizLayoutNewRawMatDialog2{
+	
+	
+	margin-top : 1rem;
+}
+.nameRawMatLabelDialog{
+	
+	margin-top:1rem;
+	/*vertical-align: text-bottom;*/
+	
+}
+
+.descRawMatLabelDialog{
+	margin-top:1rem;
+	margin-left:2rem;
+	
+	
+}
+
+.unitRawMatLabelDialog{
+	
+	margin-top:1rem;
+}
+
+.priceTotalRawMatLabelDialog{
+	margin-top:1rem;
+	margin-left:0.5rem;
+	
+}
+
+.quantRawMatLabelDialog{
+	
+	margin-top:1rem;
+	margin-left:1rem;
+	
+	
+}
+
+
+.priceUnitRawMatLabelDialog{
+	
+	margin-top:1rem;
+	margin-left:0.5rem;	
+}
+
+
+.rawMatLabelDialog {
+	
+	margin-top:1rem;
+	
+}
+
+
+.addRawMatButtonDialog{
+	
+	margin-left:25rem;
+}

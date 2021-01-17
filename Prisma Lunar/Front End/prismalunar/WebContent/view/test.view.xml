@@ -1,0 +1,408 @@
+<core:View	controllerName="prismalunar.controller.test" 
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+			
+	<Page class="pageclass" id="idPage"  showFooter="false" showSubHeader="false" showHeader="true" title="Prueba Matcheo m.Table" >
+		<content>
+		
+		<ScrollContainer id="scroll4"  horizontal="true"  vertical="false"  height="100%" width="auto">
+		<content>
+		
+		<l:HorizontalLayout id="horizFilter" allowWrapping="false">
+					<Text id="textFilter" class="testFilter" text="Filtrar por: "/>
+					<ComboBox	
+								visible="true" 
+								id="comboBoxFilter"
+								class="comboBoxRawMatFilter"
+								selectedKey="name"
+								showButton="true"
+								width="8.5rem"
+								change="onPopinLayoutChanged">
+						<items>
+							<core:Item  text="Nombre"
+								key="name"/>
+							<core:Item  text="Descripción"
+								key="descrip"/>
+							<core:Item  text="precio"
+								key="price"/>
+						</items>
+					</ComboBox>
+					
+					
+					<SearchField
+								id="rawMatSearchField"
+								class="searchFieldRawMatFilter"
+								placeholder="Búsqueda"
+								liveChange="hanldeSearchFieldFilterLiveChange"
+								width="11rem">
+					
+					</SearchField>
+		</l:HorizontalLayout>
+		
+		<FlexBox>
+		<items>
+		
+		<ScrollContainer id="scroll1"  horizontal="true"  vertical="false"  height="100%" width="40rem">
+		
+		
+		
+		<Table 		
+					width="70rem"
+					sticky="ColumnHeaders"
+					id="ProductsTable"
+					noDataText="No se han agregado productos"
+					mode="Delete"
+					delete="handleProductDeleteItem"
+					showSeparators="Inner"
+					inset="false"
+					items="{
+							path: '/',
+							sorter: {
+							path: 'Name'
+									}
+						}">
+						
+				<columns>
+			
+			<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Precio" />
+			</Column>
+			
+			
+		</columns>
+			
+			
+			<items>
+			
+			
+			
+			
+			<ColumnListItem>
+			
+				
+				
+				<cells>
+					
+					
+					<ObjectIdentifier
+						id="prodIDProductTable"
+						title="{prodId}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodNameProductTable"
+						title="{prodName}"
+						/>
+					<Text
+						id="prodDescripProductTable"
+						text="{prodDescrip}" />
+					<ObjectNumber
+						id="prodPriceProductTable"
+						number="{prodPrice}"
+						unit="$"
+						 />
+
+				</cells>
+				
+			</ColumnListItem>
+			
+			
+		</items>	
+	
+	
+	</Table>
+		
+	</ScrollContainer>
+	
+	
+	<ScrollContainer id="scroll2"  height="100%"  width="40rem">
+		
+	
+	<Table 		
+					width="70rem"
+					sticky="ColumnHeaders"
+					id="ProductsTable2"
+					noDataText="No se han agregado productos"
+					mode="Delete"
+					delete="handleProductDeleteItem"
+					showSeparators="Inner"
+					inset="false"
+					items="{
+							path: '/',
+							sorter: {
+							path: 'Name'
+									}
+						}">
+						
+				<columns>
+				
+					<Column
+						width="50%">
+						<Text text="Unidad de Medida" />
+						</Column>
+					<Column
+						width="50%">
+						<Text text="Cantidad" />
+					</Column>
+				
+				</columns>
+				<items>
+
+			<ColumnListItem>
+				<cells>
+					
+					
+					<ObjectIdentifier
+						id="prodUoMProductTable"
+						title="{prodUOM}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodQuantityProductTable3"
+						title="{prodQuantity}"
+						/>
+						
+				</cells>
+			</ColumnListItem>
+			
+			
+		</items>	
+						
+
+	</Table>
+		
+
+	</ScrollContainer>
+	
+	
+	
+	<ScrollContainer id="scroll3"  height="100%" width="40rem">
+		
+	
+	<Table 		
+					width="70rem"
+					id="ProductsTable3"
+					noDataText="No se han agregado productos"
+					mode="Delete"
+					delete="handleProductDeleteItem"
+					showSeparators="Inner"
+					inset="false"
+					items="{
+							path: '/',
+							sorter: {
+							path: 'Name'
+									}
+						}">
+						
+				<columns>
+			
+			<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Precio" />
+			</Column>
+			
+				<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Precio" />
+			</Column>
+			
+					<Column
+				
+				width="3rem">
+				<Text text="ID" />
+				</Column>
+			<Column
+				width="8rem">
+				<Text text="Nombre" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Descripción" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Precio" />
+			</Column>
+			
+		</columns>
+			
+			
+			<items>
+			
+			
+			
+			
+			<ColumnListItem>
+			
+				
+				
+				<cells>
+					
+					
+					<ObjectIdentifier
+						id="prodIDProductTable6"
+						title="{prodId}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodNameProductTable6"
+						title="{prodName}"
+						/>
+					<Text
+						id="prodDescripProductTable6"
+						text="{prodDescrip}" />
+					<ObjectNumber
+						id="prodPriceProductTable6"
+						number="{prodPrice}"
+						unit="$"
+						 />
+						 
+						 <ObjectNumber number="{number}">
+						 
+						 </ObjectNumber>
+						 
+					
+					 
+					
+				</cells>
+				
+				
+				<cells>
+						
+						
+						
+						<ObjectIdentifier
+						id="prodIDProductTable7"
+						title="{prodId2}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodNameProductTable7"
+						title="{prodName2}"
+						/>
+					<Text
+						id="prodDescripProductTable7"
+						text="{prodDescrip2}" />
+					<ObjectNumber
+						id="prodPriceProductTable7"
+						number="{prodPrice2}"
+						unit="$"
+						 />
+						
+						
+					</cells>
+				
+							 
+							 
+							 	
+				<cells>
+						
+						
+						
+						<ObjectIdentifier
+						id="prodIDProductTable8"
+						title="{prodId3}"
+						/>
+						
+					<ObjectIdentifier
+						id="prodNameProductTable8"
+						title="{prodName3}"
+						/>
+					<Text
+						id="prodDescripProductTable8"
+						text="{prodDescrip3}" />
+					<ObjectNumber
+						id="prodPriceProductTable8"
+						number="{prodPrice3}"
+						unit="$"
+						 />
+						
+						
+					</cells>
+			</ColumnListItem>
+			
+			
+		</items>	
+						
+						
+						
+
+	
+	
+	</Table>
+		
+	
+	
+	
+	</ScrollContainer>
+		</items>
+	</FlexBox>
+	
+	</content>
+	</ScrollContainer>
+		</content>
+	</Page>
+</core:View>

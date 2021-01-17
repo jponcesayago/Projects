@@ -1,0 +1,189 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.1.0",
+	"id": "prismaunar",
+	"type": "application",
+	"i18n": "i18n/i18n.properties",
+	"title": "{{appTitle}}",
+	"description": "{{appDescription}}",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	},
+	"ach": "CA-UI5-DOC"
+  },
+  "sap.ui": {
+	"_version": "1.1.0",
+	"technology": "UI5",
+	"deviceTypes": {
+	  "desktop": true,
+	  "tablet": true,
+	  "phone": true
+	},
+	"supportedThemes": [
+	  "sap_bluecrystal"
+	]
+  },
+  "sap.ui5": {
+	"_version": "1.1.0",
+	"rootView": "prismalunar.view.homePage",
+	"dependencies": {
+	  "minUI5Version": "1.30",
+	  "libs": {
+		"sap.m": {}
+	  }
+	},
+	"models": {
+	  "i18n": {
+		"type": "sap.ui.model.resource.ResourceModel",
+		"settings": {
+		  "bundleName": "prismalunar.i18n.i18n"
+		}
+	  }
+	},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "prismalunar.view",
+				"controlAggregation": "pages",
+				"controlId": "idhomePage1"
+			},"routes": [
+				{
+				
+					"pattern": "homePage",
+					"name": "homePage",
+					"target": [
+						"homePage"
+					]					
+				},
+				{
+				
+					"pattern": "newrawmaterial",
+					"name": "newrawmaterial",
+					"target": [
+						"newrawmaterial"
+					]					
+				},
+				{
+				
+					"pattern": "viewrawmaterialregistry",
+					"name": "viewrawmaterialregistry",
+					"target": [
+						"viewrawmaterialregistry"
+					]					
+				},
+				{
+				
+					"pattern": "newproduct",
+					"name": "newproduct",
+					"target": [
+						"newproduct"
+					]					
+				},
+				{
+				
+					"pattern": "viewproductsregistry",
+					"name": "viewproductsregistry",
+					"target": [
+						"viewproductsregistry"
+					]					
+				},
+				{
+				
+					"pattern": "test",
+					"name": "test",
+					"target": [
+						"test"
+					]					
+				},
+				{
+				
+					"pattern": "test2",
+					"name": "test2",
+					"target": [
+						"test2"
+					]					
+				},
+				{
+				
+					"pattern": "test3",
+					"name": "test3",
+					"target": [
+						"test3"
+					]					
+				}
+				,
+				{
+				
+					"pattern": "test4",
+					"name": "test4",
+					"target": [
+						"test4"
+					]					
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				],
+				"targets": {
+				"homePage": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "homePage"
+					
+				},
+					"newrawmaterial": {
+					"viewType": "XML",
+					"viewName": "newrawmaterial"		
+					},
+					"viewrawmaterialregistry": {
+					"viewType": "XML",
+					"viewName": "viewrawmaterialregistry"		
+					},
+					"newproduct": {
+					"viewType": "XML",
+					"viewName": "newproduct"		
+					},
+					"viewproductsregistry": {
+					"viewType": "XML",
+					"viewName": "viewproductsregistry"		
+					},
+					"test": {
+					"viewType": "XML",
+					"viewName": "test"		
+					},
+					"test2": {
+					"viewType": "XML",
+					"viewName": "test2"		
+					},
+					"test3": {
+					"viewType": "XML",
+					"viewName": "test3"		
+					},
+					"test4": {
+					"viewType": "XML",
+					"viewName": "test4"		
+					}
+					
+					
+					
+					
+					
+					
+					
+				}
+			}
+  }
+}

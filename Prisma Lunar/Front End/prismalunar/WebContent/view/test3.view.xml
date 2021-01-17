@@ -1,0 +1,307 @@
+<core:View  controllerName="prismalunar.controller.test3"
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:u="sap.ui.unified"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:viz="sap.viz.ui5.controls"
+			xmlns:cm="sap.suite.ui.commons"
+			xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+			xmlns:viz.data="sap.viz.ui5.data"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:tnt="sap.tnt"
+			height="100%">
+		 	
+	<Page id="test3Page" title="Prueba Matcheo Con Ui.Table">
+		<content>
+	
+	<ScrollContainer id="scroll4"  horizontal="true"  vertical="false"  height="100%" width="auto">
+		<content>
+		
+		<FlexBox>
+		<items>
+		
+			<ScrollContainer class="scrollProductsTable" id="scroll1"  horizontal="true"  vertical="false"  height="100%" width="40rem">
+			
+			<t:Table
+				class="productsTable"
+				id="ProductsTable"
+				selectionMode="None"
+				editable= "true"
+				rows="{/Products}"
+				visibleRowCount="5"
+				enableCellFilter="true"
+				rowHeight="48"
+				columnHeaderHeight="10"
+				filter="handleFilter"
+				ariaLabelledBy="title"
+				width="70rem"
+				visible="true"
+				firstVisibleRowChanged="handleGetScrollVertPosition"
+				
+				
+				>
+			
+				<t:columns>
+					<t:Column
+						width="5%"
+						hAlign="Center"
+						filterProperty="prodId"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="EQ"
+						filterType="sap.ui.model.type.Integer"
+						>
+						<Label text="ID" />
+						<t:template>
+							<!--  <Text  text="{prodId}"/>-->
+							<Link emphasized="true" press="handleLinkPress" text="{prodId}" />
+						</t:template>
+					</t:Column>
+					<t:Column
+						width="40%"
+						hAlign="Center"
+						filterProperty="prodName"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						
+						>
+						<Label text="Nombre" />
+						<t:template>
+						
+						<!-- <Text text="{prodName}"/> -->	
+							
+						<!--  <Select
+								id="selectProdName"
+								change="handleSelectProdNameChange"
+								selectedKey = "{prodName}"
+								items="{
+									path: '/NameSelectList',
+									templateShareable:false
+								}">
+								<core:Item key="{NameId}" text="{Name}" />
+							</Select>
+								
+							-->
+							
+							<SearchField
+									class="searchFieldTableClass"
+									id="searchField"
+									width="100%"
+									placeholder="Search for..."
+									enableSuggestions="true"
+									showSearchButton="false"
+									showRefreshButton="false"
+									search="onSearch"
+									suggest="handleOnSuggest"
+									value="{prodName}"
+									liveChange="handleSearchFieldChange"
+									suggestionItems="{
+										path: '/NameSelectList',
+										templateShareable:false
+									}">
+									<SuggestionItem text="{Name}"  key="{NameId}" />
+								</SearchField>
+							
+							
+							
+						<!-- 
+							<Input 	autocomplete="true"
+									type="Text"
+									value="{prodName}"
+									enableSuggestionsHighlighting="true"
+									filterSuggests="true"
+									maxLength="30"
+									showSuggestion="true"
+									showTableSuggestionValueHelp="true"
+									showValueHelp="false"
+									startSuggestion="1"
+									suggestionRowValidator=""
+									suggest="handleInputSuggest"
+									suggestionItems="{
+										path: '/NameSelectList',
+										templateShareable:false
+									}">
+									<suggestionItems>
+										<core:Item text="{Name}" />
+									</suggestionItems>
+							</Input>
+							 -->	
+						</t:template>
+					</t:Column>
+					<t:Column width="40%"
+							hAlign="Center"
+							filterProperty="prodDescrip"
+							showFilterMenuEntry="true"
+							defaultFilterOperator="Contains"
+					>
+						<Label text="Descripción" />
+						<t:template>
+							<Text text="{prodDescrip}"></Text>
+						</t:template>
+					</t:Column>
+					<t:Column
+						
+						id="availability"
+						width="15%"
+						hAlign="Center"
+						filterProperty="prodPrice"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						>
+						<Label text="Precio" />
+						<t:template>
+							<Text text="{prodPrice}"/>
+						</t:template>
+					</t:Column>
+				
+				</t:columns>
+				
+			</t:Table>
+			
+	
+			
+			</ScrollContainer>
+			
+			
+			<ScrollContainer class="scrollProductsTable" id="scroll2"  height="100%"  width="40rem">
+			
+			
+			<t:Table
+				class="productsTable2"
+				id="ProductsTable2"
+				selectionMode="None"
+				rows="{/Products}"
+				visibleRowCount="5"
+				rowHeight="48"
+				columnHeaderHeight="10"
+				enableCellFilter = "true"
+				filter="handleFilter2"
+				
+				ariaLabelledBy="title"
+				width="70rem"
+				visible="true"
+				firstVisibleRowChanged="handleGetScrollVertPosition"
+				
+				
+				>
+			
+				<t:columns>
+					<t:Column
+						width="50%"
+						hAlign="Center"
+						filterProperty="prodUOM"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						>
+						<Label text="Unidad de Medida" />
+						<t:template>
+							<Text  text="{prodUOM}"/>
+						</t:template>
+					</t:Column>
+					
+					<t:Column
+						width="50%"
+						hAlign="Center"
+						filterProperty="prodQuantity"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						
+						>
+						<Label text="Cantidad" />
+						<t:template>
+							<Text text="{prodQuantity}"/>
+						</t:template>
+					</t:Column>
+					
+				
+				
+				</t:columns>
+				
+			</t:Table>
+			
+			
+			</ScrollContainer>
+			
+		
+		
+		<ScrollContainer id="scroll3"  height="100%"  width="40rem">
+			
+			
+			<t:Table
+				class="productsTable3"
+				id="ProductsTable3"
+				selectionMode="None"
+				rows="{/Products}"
+				visibleRowCount="5"
+				rowHeight="48"
+				columnHeaderHeight="10"
+				filter="handleFilter3"
+				ariaLabelledBy="title"
+				width="70rem"
+				visible="true"
+				enableCellFilter = "true"
+				firstVisibleRowChanged="handleGetScrollVertPosition"
+				
+				>
+			
+				<t:columns>
+					<t:Column
+						width="50%"
+						hAlign="Center"
+						filterProperty="prodWarranty"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						
+						>
+						<Label text="Garantía" />
+						<t:template>
+							<Text  text="{prodWarranty}"/>
+						</t:template>
+					</t:Column>
+					
+					
+					
+					<t:Column
+						width="50%"
+						hAlign="Center"
+						filterProperty="prodObservations"
+						showFilterMenuEntry="true"
+						defaultFilterOperator="Contains"
+						
+						>
+						<Label text="Observaciones" />
+						<t:template>
+							<Text  text="{prodObservations}"/>
+						</t:template>
+					</t:Column>
+				
+				</t:columns>
+				
+			</t:Table>
+			
+			
+			</ScrollContainer>
+		
+		
+		
+
+		
+		</items>
+		</FlexBox>
+		
+			
+		<Button id="saveNameButton" class="saveNameButtonClass" press="handlesaveNameButton" text="Guardar"/>
+			
+		<Button visible="false" id="getScrollVertPosition" class="getScrollVertPosition" press="handleGetScrollVertPosition" text="Scroll Vert"/>
+		
+		</content>
+		</ScrollContainer>
+	
+	
+	
+	
+	
+		</content>
+	</Page>
+</core:View>

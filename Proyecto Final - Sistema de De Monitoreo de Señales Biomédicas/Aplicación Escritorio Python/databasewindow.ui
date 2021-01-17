@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DataBaseWindow</class>
+ <widget class="QMainWindow" name="DataBaseWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Registro de Datos</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>heart_icon.png</normaloff>heart_icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>771</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2,0">
+     <property name="spacing">
+      <number>40</number>
+     </property>
+     <property name="leftMargin">
+      <number>20</number>
+     </property>
+     <property name="rightMargin">
+      <number>20</number>
+     </property>
+     <item>
+      <widget class="QDateTimeEdit" name="datePickerBegin">
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateTimeEdit" name="datePickerEnd">
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="searchButton">
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Iniciar Búsqueda de Registros</string>
+       </property>
+       <property name="text">
+        <string>Buscar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSalir">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionConectar_a_Base_de_Datos"/>
+    <addaction name="actionInicio_de_Registro_de_Se_ales"/>
+    <addaction name="actionRegistro_Nuevo_Paciente"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuSalir"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionInicio_de_Registro_de_Se_ales">
+   <property name="text">
+    <string>Inicio de Registro de Señales</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionRegistro_Nuevo_Paciente">
+   <property name="text">
+    <string>Registro Nuevo Paciente</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionConectar_a_Base_de_Datos">
+   <property name="text">
+    <string>Conectar a Base de Datos</string>
+   </property>
+   <property name="toolTip">
+    <string>Intentar re-conectar con la Base de datos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
