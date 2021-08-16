@@ -1,0 +1,81 @@
+body .p-toolbar {
+    background-color: #fff159;
+}
+
+/*********************************/
+/*DataView*/
+
+body .p-dataview-header{
+    min-height: 4rem;
+}
+
+
+.product-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+.product-description {
+        margin: 0 0 1rem 0;
+    }
+
+.product-category-icon {
+        vertical-align: middle;
+        margin-right: .5rem;
+    }
+
+.product-category {
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+.product-list-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+}
+
+#thumbnail
+{
+    aspect-ratio: auto;
+    width: 160px; height: 160p;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-right: 2rem;
+}
+
+.product-list-detail {
+            flex: 1 1 0;
+        }
+
+.p-rating {
+            margin: 0 0 .5rem 0;
+        }
+
+.product-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: .5rem;
+            align-self: flex-end;
+        }
+
+.product-list-action {
+            display: flex;
+            flex-direction: column;
+        }
+
+.p-button {
+            margin-bottom: .5rem;
+        }
+
+/*****************************/
+/*Menu Item*/
+
+body .p-menuitem-text{
+
+    cursor: pointer;
+
+}
+
+
+/********/

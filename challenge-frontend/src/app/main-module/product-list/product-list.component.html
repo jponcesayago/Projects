@@ -1,0 +1,69 @@
+<p-dataView #DataView id="DataView" [value]="dataViewValues" filterBy="title" [paginator]="true" [rows]="4"
+    [rowsPerPageOptions]="[4,10,20,50,100]" [emptyMessage]="emptyMessage" class="fadeIn"
+    [style]="{'width':'80%','margin':'auto', 'padding-top':'0rem', 'padding-left':'0.5rem'}" paginatorPosition="bottom">
+    <ng-template pTemplate="header">
+
+        <!--
+            <button id="addButtonIcon" pButton pRipple label="Nuevo" icon="pi pi-plus" pTooltip="Añadir Nuevo Módulo"
+            tooltipPosition="bottom" class="p-button-success p-mr-2" (click)="HandleAddButton()"></button>
+        -->
+
+
+        <div style="float: right; width: 13rem;" class="p-inputgroup fadeIn">
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+            <input type="search" pInputText placeholder="Búsqueda" tabindex="0"
+                (input)="DataView.filter($event.target.value, 'contains')">
+        </div>
+
+
+
+    </ng-template>
+    <ng-template let-product pTemplate="listItem" style="max-height: 10rem;">
+        <div class="p-col-12 fadeIn ">
+            <div class="product-list-item">
+                <img #thumbnail id="thumbnail" (click)="navProductDetail(product)" class="setPointer"
+                    [src]="product.thumbnail" [alt]="product.title" />
+                <div class="product-list-detail">
+                    <div class="product-name" style="font-size: 24px; font-weight: 400;">
+                        <span>
+                            {{product.price | currency : 'ARS' : 'symbol' : '0.0-0' : 'es-AR'}}
+                        </span>
+
+                        <img *ngIf="product.free_shipping"
+                            style="position: relative; top:0.5rem;aspect-ratio: auto; width: 32px; height: 32px"
+                            src="./assets/images/truck.-green-icon.png" />
+
+                    </div>
+                    <div (click)="navProductDetail(product.id)"
+                        style="font-size: 20px; font-weight: 300;line-height: 1.3;"
+                        class="product-description setPointer">{{product.title}}</div>
+                    <!--
+                        <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
+                    <i class="pi pi-tag product-category-icon"></i><span
+                        class="product-category">{{product.category}}</span>
+                    -->
+
+                </div>
+                <div class="product-list-action">
+                    <span style="font-size: 1rem;" class="product-price">{{product.state_name
+                        }}</span>
+                    <!--
+                         <p-button icon="pi pi-shopping-cart" label="Add to Cart"
+                        [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
+                    <span
+                        [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+    </ng-template>
+    <ng-template pTemplate="empty">
+        <div style="text-align: center; color: #7ead95; font-weight: bold;">
+            {{emptyMessage}}
+        </div>
+    </ng-template>
+
+
+</p-dataView>

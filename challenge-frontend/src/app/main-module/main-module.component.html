@@ -1,0 +1,38 @@
+<p-toolbar>
+    <div class="p-toolbar-group-left" style="width: 70%;">
+        <form [formGroup]="FormGroup" style="margin-left:10%; width:100%" (ngSubmit)="getSearch()">
+            <div class="p-grid p-fluid">
+                <div class="p-col-12 p-md-4">
+                    <div class="p-inputgroup">
+                        <input #searchInput id="searchInput" type="search" pInputText
+                            placeholder="Nunca dejes de buscar" formControlName="search">
+                        <span class="p-inputgroup-addon setPointer"><i (click)="getSearch()"
+                                class="pi pi-search"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="p-toolbar-group-right">
+    </div>
+</p-toolbar>
+
+
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<!--
+    <app-product-list *ngIf="displayList" (displayproductDataEvent)="productDataStringify=$event"
+    (displayListEvent)="displayList=$event" class="fadeIn" [dataViewValuesStringify]="dataViewValuesStringify">
+</app-product-list>
+
+<app-product-detail *ngIf="!displayList" [productDataStringify]="productDataStringify">
+</app-product-detail>
+-->
+
+
+<div [@routeAnimation]="getAnimationData(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
