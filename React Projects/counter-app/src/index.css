@@ -1,0 +1,13 @@
+html, body {
+    color:wheat;
+    background-color: #21232A;
+    font-family: 'Helvetica Neue','Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    padding: 70px;
+}
+
+button {
+    font-size: 1.3rem;
+    margin-right: 10px;
+    padding: 10px;
+}
