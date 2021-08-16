@@ -23,14 +23,6 @@
 
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
-<!--
-    <app-product-list *ngIf="displayList" (displayproductDataEvent)="productDataStringify=$event"
-    (displayListEvent)="displayList=$event" class="fadeIn" [dataViewValuesStringify]="dataViewValuesStringify">
-</app-product-list>
-
-<app-product-detail *ngIf="!displayList" [productDataStringify]="productDataStringify">
-</app-product-detail>
--->
 
 
 <div [@routeAnimation]="getAnimationData(outlet)">

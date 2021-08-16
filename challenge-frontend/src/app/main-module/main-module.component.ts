@@ -48,9 +48,6 @@ export class MainModuleComponent implements OnInit, AfterViewInit {
 
   }
 
-  message: string;
-
-  subscription: Subscription;
 
   ngAfterViewInit() {
 
@@ -73,11 +70,6 @@ export class MainModuleComponent implements OnInit, AfterViewInit {
   emptyMessage: string = "No Hay Resultados Para la Búsqueda"
 
   ngOnInit() {
-
-    // this.subscription = this.sharedService.sharedMessage.subscribe(
-    //   message => {
-    //     this.message = message;
-    //   });
 
 
     this.items = [];

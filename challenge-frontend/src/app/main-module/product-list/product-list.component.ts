@@ -40,9 +40,6 @@ export class ProductListComponent implements OnInit {
 
     this.sharedService.productListSharedMessage.subscribe(message => this.dataViewValues = message);
 
-    // this.sharedService.nextMessage("Second Message");
-    // this.sharedService.nextMessage("Third Message");
-
   }
 
   ////////////////////////////////////////////////////////
@@ -51,7 +48,7 @@ export class ProductListComponent implements OnInit {
 
   navProductDetail(product: any) {
 
-    console.log(product);
+    //console.log(product);
 
     this.sharedService.productDetailValuesChange(product);
     this.router.navigate(['/main-module/product-detail']);
