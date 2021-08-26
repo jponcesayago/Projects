@@ -1,0 +1,36 @@
+/*********************/
+/*animations*/
+
+.fadeIn
+{
+    animation: fadein .25s linear;
+}
+
+
+@keyframes fadein {
+        0%   {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+.fadeinleft
+{
+    animation: fadeinleft .25s linear;
+}
+
+
+    @keyframes fadeinleft {
+        0%   {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform .12s cubic-bezier(0, 0, 0.2, 1), opacity .12s cubic-bezier(0, 0, 0.2, 1);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
