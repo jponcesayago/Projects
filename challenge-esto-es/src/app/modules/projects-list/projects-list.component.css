@@ -1,0 +1,51 @@
+.project-list-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+
+}
+
+img{
+    width: 35px;
+    height: 48px;
+    /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+    margin-right: 1rem;
+}
+
+.project-list-detail {
+        flex: 1 1 0;
+}
+
+
+
+.project-list-action {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-button {
+    margin-bottom: .5rem;
+}
+
+
+.dataviewHeader{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.projectList{
+    width: 90%;
+    margin: auto;
+}
+
+@media only screen and (max-device-width: 768px){
+
+    .projectList{
+        width: 100%;
+    }
+
+
+}

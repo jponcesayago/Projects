@@ -1,0 +1,21 @@
+<p-card [style]="{'margin-bottom':'1.5rem'}">
+    <div class="logo">LOGO</div>
+    <hr />
+    <div class="navToolBar">
+        <div *ngIf="isProjectFormView">
+            <i style="cursor: pointer; font-weight: 700; " (click)="HandleBackButton()" class="pi pi-arrow-left"></i>
+            <span style="margin-left:1rem; margin-right: 1rem;">Back</span>
+        </div>
+        <span style="flex-shrink: 0; width: 12rem;" class="navTitle">{{navTitle}}</span>
+        <div *ngIf="!isProjectFormView" style="width: 100%;display: flex; justify-content: flex-end;">
+            <button class="navButton" id="addProyectButton" pButton pRipple label="Add project" icon="pi pi-plus"
+                class="p-button-danger p-mr-2" (click)="HandleAddButton()"></button>
+        </div>
+
+    </div>
+</p-card>
+
+
+<div [@routeAnimation]="getAnimationData(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>

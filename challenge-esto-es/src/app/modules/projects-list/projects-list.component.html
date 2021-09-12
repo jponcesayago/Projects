@@ -1,0 +1,53 @@
+<p-toast [baseZIndex]="toastZIndex" position="top-right" key="operationStatusInfo"></p-toast>
+
+<div class="card projectList">
+    <p-dataView #dv emptyMessage="No projects availables" [showCurrentPageReport]="true" [value]="projectsValues"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} projects" [paginator]="true" [rows]="5"
+        filterBy="name" layout="list">
+        <ng-template pTemplate="header">
+            <div class="dataviewHeader">
+                <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                    <i class="pi pi-search"></i>
+                    <input type="search" pInputText placeholder="Search by Name"
+                        (input)="dv.filter($event.target.value)">
+                </span>
+
+            </div>
+        </ng-template>
+        <ng-template let-project pTemplate="listItem">
+            <div class="p-col-12">
+                <div class="project-list-item">
+
+                    <div class="project-list-detail">
+                        <div style="padding-bottom: 0.25rem; font-weight: 500;">{{project.name}}</div>
+                        <div style="padding-bottom: 0.5rem; color: rgb(177, 177, 177); font-size: 0.85rem;">Creation
+                            date: {{project.date | date: 'dd/MM/yy, hh:mm a'}}</div>
+                        <div style="display: flex; flex-direction: row;">
+                            <img src="./assets/icons/assigned-icon.png" [alt]="project.name" />
+                            <span style="align-self: center; font-weight: 500;">
+                                {{project.assigned}}
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="project-list-action">
+
+                        <p-button class="p-button-raised" id="button" (contextmenu)="openCm($event, cm)"
+                            (click)="openCm($event, cm,project)" aria-haspopup="true" #button icon="pi pi-ellipsis-v"
+                            label="">
+                        </p-button>
+
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+
+    </p-dataView>
+</div>
+
+<p-contextMenu #cm appendTo="body" [model]="items"></p-contextMenu>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>

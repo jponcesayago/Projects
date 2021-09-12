@@ -1,0 +1,16 @@
+.formInput{
+    align-items: center;
+    display: flex;
+    justify-content:flex-start;
+    padding-top: 1rem;
+    flex-direction: column;
+}
+
+.confirmButton{
+    display: flex;
+    justify-content:flex-start;
+    width: 95%;
+    margin: auto;
+    margin-top: 1rem;
+
+}

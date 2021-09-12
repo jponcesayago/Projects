@@ -1,0 +1,103 @@
+<p-card [style]="{'width':'70%','margin':'auto'}">
+    <form [formGroup]="projectFormGroup">
+        <div class="formInput">
+
+            <div style="width: 95%; text-align: left;">
+                <label style="font-weight: 400;" for="projectNameInput">Project name</label>
+            </div>
+
+            <span class="p-inputgroup" style="width: 95%;">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input id="projectNameInput" formControlName="projectName" type="text" (input)="HandleValidateForm()"
+                    [(ngModel)]="projectName" pInputText placeholder="Project Name">
+
+            </span>
+
+
+        </div>
+        <div class="formInput">
+
+            <div style="width: 95%; text-align: left;">
+                <label style="font-weight: 400;" for="projectDescInput">Description</label>
+            </div>
+
+
+
+            <span class="p-inputgroup" style="width: 95%;">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input id="projectDescInput" formControlName="projectDescription" type="text"
+                    (input)="HandleValidateForm()" [(ngModel)]="projectDescription" pInputText
+                    placeholder="Description">
+
+            </span>
+
+
+        </div>
+
+
+        <div class="formInput">
+
+            <span style="width: 95%; text-align: left;">
+                <label for="projectManagerDD">Project Manager</label>
+            </span>
+
+            <span style="width: 95%;">
+                <p-dropdown [style]="{'color' : '#414141', 'width':'100%',
+                                                                                'position':'relative'}"
+                    id="projectManagerDD" #projectManagerDD formControlName="projectManager"
+                    [options]="projectManageOptions" appendTo="body" [(ngModel)]="selectedProjectManager"
+                    optionLabel="label">
+                </p-dropdown>
+            </span>
+
+
+
+
+        </div>
+
+
+        <div class="formInput">
+
+            <span style="width: 95%; text-align: left;">
+                <label for="assinegToDD">Assigned to</label>
+            </span>
+
+            <span style="width: 95%;">
+                <p-dropdown [style]="{'color' : '#414141', 'width':'100%',
+                                                                                'position':'relative'}"
+                    id="assinegToDD" #assinegToDD formControlName="assignedTo" [options]="assignedToOptions"
+                    appendTo="body" [(ngModel)]="selectedAssignedTo" optionLabel="label">
+                </p-dropdown>
+            </span>
+
+
+
+
+        </div>
+
+
+        <div class="formInput">
+
+            <span style="width: 95%; text-align: left;">
+                <label style=" position: relative; " for="element">Status</label>
+            </span>
+
+            <span style="width: 95%;">
+                <p-dropdown [style]="{'color' : '#414141', 'width':'100%',
+                                                'position':'relative'}" id="statusDD" #statusDD
+                    formControlName="status" [options]="statusOptions" appendTo="body" [(ngModel)]="selectedStatus"
+                    optionLabel="label">
+                </p-dropdown>
+            </span>
+
+        </div>
+
+        <div class="confirmButton">
+            <button type="button" [(disabled)]="isConfirmButton" pButton icon="" (click)="HandleConfirmButton()"
+                class="p-button-danger" [label]="confirmButtonLabel">
+            </button>
+        </div>
+    </form>
+
+
+</p-card>
