@@ -1,0 +1,83 @@
+﻿@model BgGlobalChallenge.Models.Custom.CustomModels.EquipmentPropertyList;
+@{
+    ViewData["Title"] = "Vehículos - Alta";
+}
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+function ValidateForm() {
+            let modelValue = $("#modelInput").val();
+            let patentValue = $("#patentInput").val();
+            const doorsValue = $("#doorsInput").val();
+            let submitFormButton = $("#submitFormButton");
+
+            modelValue.replace(" ", "");
+            patentValue.replace(" ", "");
+            doorsValue.replace(" ", "");
+
+
+            if ((modelValue.length === 0) || (doorsValue.length === 0)
+                || (patentValue.length !== 8) || (isNaN(doorsValue))
+                || (parseInt(doorsValue) > 20)) {
+
+                submitFormButton.prop("disabled", true);
+            } else {
+                submitFormButton.prop("disabled", false);
+            }
+            console.log(modelValue);
+        }
+</script>
+
+
+
+<h1>Alta</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="brand" class="control-label"></label>
+                <select asp-for="brand" asp-items="@(new SelectList(Model.brandList,"label","label"))" class="form-control"></select>
+                <span asp-validation-for="brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="model" class="control-label"></label>
+
+                <input required oninput="return ValidateForm();" id="modelInput" asp-for="model" class="form-control" />
+                <span asp-validation-for="model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="patent" class="control-label"></label>
+                <input required oninput="return ValidateForm();" id="patentInput" asp-for="patent" class="form-control" />
+                <span asp-validation-for="patent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="owner" class="control-label"></label>
+                <select asp-for="owner" asp-items="@(new SelectList(Model.ownerList, "label", "label"))" class="form-control"></select>
+                <span asp-validation-for="owner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="doors" class="control-label"></label>
+                <input data-val-range="El campo no debe ser mayor a 20" data-val-range-min="0" data-val-range-max="20" required oninput="return ValidateForm();" id="doorsInput" asp-for="doors" class="form-control" />
+                <span asp-validation-for="doors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input disabled id="submitFormButton" type="submit" value="Alta" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{<partial name="_ValidationScriptsPartial" />}
+}
+
+
+
+
