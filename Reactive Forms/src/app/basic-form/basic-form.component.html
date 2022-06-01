@@ -1,0 +1,202 @@
+
+<form  [formGroup]="form" (ngSubmit)="save($event)" action="">
+    <div class="formContainer">
+      <div class="row" style="align-items: center;">
+        <div formGroupName="fullName" class="col-12">
+          <div class="row" style="align-items: center;">
+            <div class="col-1">
+              <span style="font-weight: bold;">
+                Name:
+              </span>
+              <span>
+                {{nameField.valid}}
+              </span> 
+            </div>
+            <div class="col-5">
+              <input class="form-control"
+              [class.is-valid]="isNameFieldValid" 
+              [class.is-invalid]="isNameFieldInvalid" 
+              type="text" formControlName="name"/>
+            </div>
+            <div class="col-1">
+              <span style="font-weight: bold;">
+                Last Name:
+              </span>
+              <span>
+                {{lastNameField.valid}}
+              </span> 
+            </div>
+            <div class="col-5">
+              <input class="form-control"
+              [class.is-valid]="isLastNameFieldValid" 
+              [class.is-invalid]="isLastNameFieldInvalid" 
+              type="text" formControlName="lastName"/>
+            </div>
+            <!-- <div class="col-1">
+              <button class="btn btn-warning" [disabled]="!nameField.valid" (click)="getValue()">Get Value</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    
+
+
+      <div class="row" style="align-items: center;"  class="messages" [class.active]="isNameFieldInvalid">
+        <div class="col-12">
+          <strong style="color:red" *ngIf="nameField.touched && nameField.hasError('required')">
+            Este campo es requerido.
+        </strong >
+        <strong style="color:red" *ngIf="nameField.dirty && nameField.hasError('maxlength')">
+            No puede exceder los 10 caracteres.
+        </strong>
+        <strong style="color:red" *ngIf="nameField.dirty && nameField.hasError('pattern')">
+          El nombre no puede tener caracteres especiale ni números.
+      </strong>
+        </div>
+      </div>
+      
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Email: {{ emailField.value }}
+        </div>
+        <div class="col-5">
+          <input  [class.is-valid]="isEmailFieldValid" 
+                [class.is-invalid]="isEmailFieldInvalid" 
+                class="form-control" type="email" formControlName="email"/>
+        </div>
+      </div>
+
+      <div class="row" style="align-items: center;"  class="messages" [class.active]="isEmailFieldInvalid">
+        <div class="col-12">
+          <strong style="color:red" *ngIf="emailField.touched && emailField.hasError('email')">
+           Por favor ingrese un email válido.
+        </strong >
+        </div>
+      </div>
+     
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Phone: {{ phoneField.value }}
+        </div>
+        <div class="col-5">
+          <input class="inputText"  class="form-control" type="tel" formControlName="phone"/>
+        </div>
+      </div>
+    
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Color: {{ colorField.value }}
+        </div>
+        <div class="col-2">
+          <input style="width: 2.5rem;" class="form-control" type="color" formControlName="color"/>
+        </div>
+      </div>
+    
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Date: {{ dateField.value }}
+        </div>
+        <div class="col-5">
+          <input class="inputText"  class="form-control" type="date" formControlName="date"/>
+        </div>
+      </div>
+      
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Age: {{ ageField.value }}
+        </div>
+        <div class="col-5">
+          <input class="inputText"  class="form-control" type="number" formControlName="age"/>
+        </div>
+      </div>
+
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Category: {{ categoryField.value }}
+        </div>
+        <div class="col-5">
+          <select class="form-select" formControlName="category">
+            <option value="category-1">Category 1</option>
+            <option value="category-2">Category 2</option>
+            <option value="category-3">Category 3</option>
+            <option value="category-4">Category 4</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Tags: {{ tagField.value }}
+        </div>
+        <div class="col-5">
+          <select class="form-select"  formControlName="tag" multiple>
+            <option value="tag-1">Tag 1</option>
+            <option value="tag-2">Tag 2</option>
+            <option value="tag-3">Tag 3</option>
+            <option value="tag-4">Tag 4</option>
+          </select>
+        </div>
+      </div>
+     
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Agree: {{ agreeField.value }}
+        </div>
+        <div class="col-5">
+          <input  class="form-check-input" type="checkbox" formControlName="agree"/>
+        </div>
+      </div>
+    
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Gender: {{ genderField.value }}
+        </div>
+        <div class="col-5">
+          <label>
+            <input class="form-check-input" name="gender" value="male" type="radio" formControlName="gender"/>
+            Male
+          </label>
+          <label>
+            <input class="form-check-input" name="gender" value="female" type="radio" formControlName="gender"/>
+            Female
+          </label>
+          <label>
+            <input class="form-check-input" name="gender" value="other" type="radio" formControlName="gender"/>
+            Other
+          </label>
+        </div>
+      </div>
+      
+
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-1">
+          Zone: {{ zoneField.value }}
+        </div>
+        <div class="col-5">
+          <label>
+            <input class="form-check-input" name="zone" value="zone-1" type="radio" formControlName="zone"/>
+            Zona 1
+          </label>
+          <label>
+            <input class="form-check-input" name="zone" value="zone-2" type="radio" formControlName="zone"/>
+            Zona 2
+          </label>
+          <label>
+            <input class="form-check-input" name="zone" value="zone-3" type="radio" formControlName="zone"/>
+            Zona 3
+          </label>
+        </div>
+      </div>
+    
+      <div class="row" style="align-items: center; margin-top: 1rem;">
+        <div class="col-12" style="display: flex; justify-content: center;">
+          <button class="btn btn-primary" [disabled]="!form.valid" type="submit">Enviar</button>
+        </div>
+        
+      </div>
+
+  </div>
+    
+
+</form>
+

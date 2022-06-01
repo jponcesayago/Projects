@@ -1,0 +1,68 @@
+
+
+.is-valid{
+    border: 3px solid green;
+
+}
+
+.is-invalid{
+    border: 2px solid red;
+}
+
+/* .messages{
+    opacity: 1;
+
+}
+
+.active{
+    
+    opacity: 0;
+    transition: all 0.5s ease-in;
+} */
+
+.active{
+    -webkit-animation: 0.35s ease 0s normal forwards 1 fadein;
+    animation: 0.35s ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+p{
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    vertical-align: middle; 
+    align-items: center;
+}
+
+input{
+    padding: 0.5rem;
+}
+.inputText{
+    width: 10rem;
+}
+
+.formContainer{
+    display: flex; 
+    flex-direction: column; 
+}
+
+form{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding: 1rem;
+}
+
