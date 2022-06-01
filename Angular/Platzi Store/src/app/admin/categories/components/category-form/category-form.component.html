@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="save()" >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Registro</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input placeholder="name" formControlName="name" matInput type="text">
+              <div *ngIf="form.get('name').dirty && form.get('name').invalid">
+                <mat-error *ngIf="form.get('name').hasError('required')">
+                  Requerido
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('minLength')">
+                  El nombre de la categoría debe ser de 5 caracteres.
+                </mat-error>
+                <mat-error *ngIf="form.get('name').hasError('not_available')">
+                  Nombre no disponible.
+                </mat-error>
+              </div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs">
+              <img width="250px" height="250px" *ngIf="imageField.value" [src]="imageField.value" alt="" />
+            <input (change)="uploadFile($event)" placeholder="Image"  type="file">
+            <div *ngIf="imageField.touched && imageField.invalid">
+                <mat-error *ngIf="imageField.hasError('required')">
+                    Requerido
+                 </mat-error>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="form.invalid"  mat-raised-button color="primary" type="submit">
+          {{this.category ? "Actualizar Categoría": "Crear producto"}}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  
+  </form>
