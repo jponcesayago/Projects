@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "xbp7WrGLJxEUCE3KGLL1jmiBytXJ1UVQFgKIApJBsum1rw3DqsbxbAq7LoX6fcbY8DTzlITveAMfylnKcma6aQ==",
+  "success": true,
+  "projectFilePath": "C:\\Juan\\.Net Projects\\utn-students-formatter-api\\utn-students-formatter-api\\utn-students-formatter-api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.17\\microsoft.aspnetcore.jsonpatch.5.0.17.nupkg.sha512",
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.17\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.17.nupkg.sha512",
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Juan Carlos\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
